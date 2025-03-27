@@ -1,27 +1,31 @@
 # MERN Authentication System with Nodemailer, Twilio, and Redis
 
-## 🚀 Project Overview
+## ✨ Project Overview
 This is a **MERN stack-based authentication system** that provides secure user authentication using:
 - **Nodemailer** for email verification
 - **Twilio** for mobile OTP verification
 - **Redis** for temporary data storage and session management
+- **Worker Process** for handling email sending asynchronously
 
 ## 🛠️ Features
-✅ User Registration with Email Verification (via Nodemailer)
-✅ Mobile Number Verification using OTP (via Twilio)
-✅ Secure Password Hashing
-✅ JWT-based Authentication & Authorization
-✅ Redis for Caching and Session Management
-✅ User Login with Email/Mobile & Password
-✅ Forgot Password & Reset via OTP/Email
+✅ User Registration with Email Verification (via Nodemailer)  
+✅ Mobile Number Verification using OTP (via Twilio)  
+✅ Secure Password Hashing  
+✅ JWT-based Authentication & Authorization  
+✅ Redis for Caching and Session Management  
+✅ Background Worker for Email Sending  
+✅ User Login with Email/Mobile & Password  
+✅ Forgot Password & Reset via OTP/Email  
 
-## 🏗️ Tech Stack
+## 🏢 Tech Stack
 - **Backend**: Node.js, Express.js
+- **Frontend**: React.js
 - **Database**: MongoDB with Mongoose
 - **Authentication**: JWT (JSON Web Token)
 - **Email Service**: Nodemailer with SMTP
 - **SMS Service**: Twilio
 - **Cache & Storage**: Redis
+- **Worker Processing**: BullMQ & Redis
 
 ## 🔧 Installation & Setup
 ### 1️⃣ Clone the repository
@@ -63,6 +67,15 @@ redis-server
 # Start Backend
 cd backend
 npm start
+```
+
+### 5️⃣ Start the Email Worker
+The worker runs as a separate process to handle email sending in the background.
+```sh
+# Run the worker process
+cd backend
+node worker.js
+```
 
 ## 🔥 API Endpoints
 ### Authentication Routes (`/api/auth`)
@@ -85,8 +98,9 @@ npm start
 - **Backend**: Deploy using Render, Heroku, or AWS EC2
 - **Database**: MongoDB Atlas (for cloud storage)
 - **Redis**: Use Redis Cloud or local server
+- **Worker**: Deploy separately on the same or different server
 
-## 📌 License
+## 📚 License
 This project is licensed under the MIT License.
 
 ---
